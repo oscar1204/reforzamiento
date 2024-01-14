@@ -1,5 +1,12 @@
 //import { TiposBasicos } from "./TypeScript/TiposBasicos"
 
+import { Login } from "./components/Login"
+
+//import { ContadorConHook } from "./components/ContadorConHook"
+
+
+//import { Contador } from "./components/Contador"
+
 //import { Funciones } from "./TypeScript/Funciones"
 
 //import { ObjetosLiterales } from "./TypeScript/ObjetosLiterales"
@@ -15,7 +22,9 @@
      {/* <TiposBasicos/>*/}
      {/*<ObjetosLiterales/>*/}
     {/*<Funciones/>*/}
-     <contador></contador>
+     {/*<Contador/>*/}
+     {/*<ContadorConHook/>*/}
+     <Login/>
       
     </div>
   )
