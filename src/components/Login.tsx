@@ -18,7 +18,7 @@ type LoginPyload={
     nombre: string
 }
 type AuthAcction =
- |{type:'logaut' }
+ |{type:'logout' }
  |{type:'login', payload:LoginPyload};
 
  
@@ -26,7 +26,7 @@ type AuthAcction =
  
 const authreducer=(state:AuthState, action:AuthAcction ):AuthState=>{
     switch (action.type) {
-        case "logaut":
+        case "logout":
             
             return{
                 validando : false,
@@ -58,27 +58,37 @@ export const Login = () => {
    const [{validando, token, nombre}, dispatch] = useReducer(authreducer, initialState)
    useEffect(() => {
     setTimeout(() => {
-        dispatch({type:'logaut'})
+        dispatch({type:'logout'})
     }, 1500);
 
-    const login=()=>{
-        dispatch(
-            {
-                type:'login',
-                payload:{
-                    nombre:'camilo',
-                    username: 'c123'
-
-                }
-            }
-        )
-    }
+    
 
    
      
    }, [])
+   const login=()=>{
+    dispatch(
+        {
+            type:'login',
+            payload:{
+                nombre:'camilo',
+                username: 'c123'
+
+            }
+           
+        }
+        
+    )
+
+    
+
+}
+const logout=()=>{
+    dispatch({type:'logout'})
+}
    if(validando){
     return(
+        
         
         <>
          <h3>Login</h3>
@@ -102,12 +112,14 @@ export const Login = () => {
     {
     (token)
     ?(
-        <button className="btn btn-danger">
-        Logaut
+        <button className="btn btn-danger"
+        onClick={logout}
+        >
+        Logout
     </button>
     )
     :(
-        <button className="btn btn-primary" onClick={Login}>
+        <button className="btn btn-primary" onClick={login}>
         Login
     </button>
     
